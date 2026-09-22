@@ -1,0 +1,24 @@
+# Deploy to 1C: push -> self-hosted runner on the old 1C server -> Designer loads config into the IB.
+# Runner requirements: Windows host with labels [self-hosted, windows, 1c-erp],
+# educational platform 1cv8t.exe and the IB per .dev.env on that host.
+name: Deploy to 1C
+
+on:
+  push:
+    branches: [main]
+  workflow_dispatch:
+
+jobs:
+  deploy:
+    name: Load config into infobase
+    runs-on: [self-hosted, windows, 1c-erp]
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Load config from files + update DB cfg (1cv8t DESIGNER)
+        shell: powershell
+        run: |
+          powershell -NoProfile -ExecutionPolicy Bypass `
+            -File .\scripts\1c-remote\Import-Config.ps1 `
+            -LogPath .\_deploy-logs\1cv8-import.log

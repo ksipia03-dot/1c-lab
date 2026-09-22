@@ -210,10 +210,10 @@ Write-Host '=== Done. Reply in chat: блок на старом сервере �
 - [ ] R1C-002: ssh-bootstrap (blocked-waiting-owner)
 - [ ] R1C-003: env-and-scripts (⏳ Pending)
 - [ ] R1C-004: dump-and-mcp (⏳ Pending)
-- [ ] R1C-005: github-deploy (⏳ Pending)
+- [x] R1C-005: github-deploy (✅ repo+workflow 2026-09-22; runner Idle — ждёт владельца)
 - [ ] R1C-006: agents-daily-loop (⏳ Pending)
-- [ ] R1C-007: restore-commands (⏳ Pending)
-- [ ] R1C-008: docs-daily-loop (⏳ Pending)
+- [x] R1C-007: restore-commands (✅ 2026-09-22)
+- [x] R1C-008: docs-daily-loop (✅ 2026-09-22)
 - [ ] R1C-009: owner-once-handoff (⏳ Pending)
 
 ## Dependencies Graph
@@ -255,13 +255,13 @@ R1C-007 waits for R1C-003 (same Import SSOT). Prefer writing `deploy-1c.yml` aft
 ## Progress (updated by orchestrator)
 
 - ✅ R1C-001: probe-connectivity (Completed)
-- ⏸ R1C-002: ssh-bootstrap (blocked-waiting-owner)
+- ⏸ R1C-002: ssh-bootstrap (blocked-waiting-owner; smoke 2026-09-22: sshd жив, publickey denied — paste-блок владельцем не выполнен; BOM в ssh-config vdswin2k22 убран)
 - 🔄 R1C-003: env-and-scripts (In Progress)
 - ⏳ R1C-004: dump-and-mcp (Pending)
-- ⏳ R1C-005: github-deploy (Pending)
+- ✅ R1C-005: github-deploy — repo+workflow done 2026-09-22 в Kimi Work (см. [2026-09-22-kimi-continuation-plan.md](2026-09-22-kimi-continuation-plan.md)); runner Idle ждёт владельца
 - ⏳ R1C-006: agents-daily-loop (Pending)
-- ⏳ R1C-007: restore-commands (Pending)
-- ⏳ R1C-008: docs-daily-loop (Pending)
+- ✅ R1C-007: restore-commands (done 2026-09-22: content/commands/getconfigfiles.md, update1cbase.md, deploy-and-test.md)
+- ✅ R1C-008: docs-daily-loop (done 2026-09-22: docs/07-sync-github-1c-server.md; ссылка из AGENTS.md больше не битая)
 - ⏳ R1C-009: owner-once-handoff (Pending)
 
 ---
