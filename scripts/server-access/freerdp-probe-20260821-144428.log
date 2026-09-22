@@ -1,0 +1,27 @@
+=== 2026-08-21T14:44:28+03:00 sfreerdp probe timeout=45s ===
+[14:44:28:749] [83359:02102242] [WARN][com.freerdp.codec.nsc.neon] - [nsc_init_neon_int]: TODO: Implement neon optimized version of this function
+[14:44:28:760] [83359:02102242] [WARN][com.freerdp.core.rdp] - [log_build_warn][0x13c008800]: *************************************************
+[14:44:28:760] [83359:02102242] [WARN][com.freerdp.core.rdp] - [log_build_warn][0x13c008800]: This build is using [experimental] build options:
+[14:44:28:760] [83359:02102242] [WARN][com.freerdp.core.rdp] - [log_build_warn][0x13c008800]: * 'WITH_VAAPI_H264_ENCODING=ON'
+[14:44:28:760] [83359:02102242] [WARN][com.freerdp.core.rdp] - [log_build_warn][0x13c008800]: *
+[14:44:28:760] [83359:02102242] [WARN][com.freerdp.core.rdp] - [log_build_warn][0x13c008800]: [experimental] build options might crash the application
+[14:44:28:760] [83359:02102242] [WARN][com.freerdp.core.rdp] - [log_build_warn][0x13c008800]: *************************************************
+[14:44:28:760] [83359:02102242] [WARN][com.freerdp.core.rdp] - [log_build_warn][0x13c008800]: *************************************************
+[14:44:28:760] [83359:02102242] [WARN][com.freerdp.core.rdp] - [log_build_warn][0x13c008800]: This build is using [runtime-check] build options:
+[14:44:28:760] [83359:02102242] [WARN][com.freerdp.core.rdp] - [log_build_warn][0x13c008800]: * 'WITH_VERBOSE_WINPR_ASSERT=ON'
+[14:44:28:760] [83359:02102242] [WARN][com.freerdp.core.rdp] - [log_build_warn][0x13c008800]: *
+[14:44:28:760] [83359:02102242] [WARN][com.freerdp.core.rdp] - [log_build_warn][0x13c008800]: [runtime-check] build options might slow down the application
+[14:44:28:760] [83359:02102242] [WARN][com.freerdp.core.rdp] - [log_build_warn][0x13c008800]: *************************************************
+[14:44:28:800] [83359:02102242] [WARN][com.freerdp.crypto] - [tls_verify_certificate]: [DANGER] Certificate not checked, /cert:ignore in use.
+[14:44:28:800] [83359:02102242] [WARN][com.freerdp.crypto] - [tls_verify_certificate]: [DANGER] This prevents MITM attacks from being detected!
+[14:44:28:800] [83359:02102242] [WARN][com.freerdp.crypto] - [tls_verify_certificate]: [DANGER] Avoid using this unless in a secure LAN (=no internet) environment
+[14:44:29:057] [83359:02102242] [WARN][com.winpr.thread] - [SetThreadPriority]: pthread_setschedprio(0) not implemented, requires POSIX 2008 or later
+[14:45:13:678] [83359:02102242] [ERROR][com.freerdp.utils.signal.posix] - [fatal_handler]: Caught signal 'Alarm clock: 14' [14]
+[14:45:13:678] [83359:02102242] [ERROR][com.freerdp.utils.signal.posix] - [winpr_log_backtrace_ex]: 0: address=0x10096675c dli_fname=/Users/sergey/.homebrew/Cellar/freerdp/3.30.0_1/lib/libwinpr3.3.30.0.dylib [0x100944000], dli_sname=winpr_unwind_backtrace [0x1009666fc]
+[14:45:13:678] [83359:02102242] [ERROR][com.freerdp.utils.signal.posix] - [winpr_log_backtrace_ex]: 1: address=0x100964d6c dli_fname=/Users/sergey/.homebrew/Cellar/freerdp/3.30.0_1/lib/libwinpr3.3.30.0.dylib [0x100944000], dli_sname=winpr_log_backtrace_ex [0x100964d40]
+[14:45:13:678] [83359:02102242] [ERROR][com.freerdp.utils.signal.posix] - [winpr_log_backtrace_ex]: 2: address=0x100b9a984 dli_fname=/Users/sergey/.homebrew/Cellar/freerdp/3.30.0_1/lib/libfreerdp3.3.30.0.dylib [0x100b6c000], dli_sname=fatal_handler [0x100b9a920]
+[14:45:13:678] [83359:02102242] [ERROR][com.freerdp.utils.signal.posix] - [winpr_log_backtrace_ex]: 3: address=0x1941a56a4 dli_fname=/usr/lib/system/libsystem_platform.dylib [0x1941a2000], dli_sname=_sigtramp [0x1941a566c]
+[14:45:13:678] [83359:02102242] [ERROR][com.freerdp.utils.signal.posix] - [winpr_log_backtrace_ex]: 4: address=0x100948214 dli_fname=/Users/sergey/.homebrew/Cellar/freerdp/3.30.0_1/lib/libwinpr3.3.30.0.dylib [0x100944000], dli_sname=pollset_poll [0x1009481bc]
+[14:45:13:678] [83359:02102242] [ERROR][com.freerdp.utils.signal.posix] - [winpr_log_backtrace_ex]: 5: address=0x10094a1e0 dli_fname=/Users/sergey/.homebrew/Cellar/freerdp/3.30.0_1/lib/libwinpr3.3.30.0.dylib [0x100944000], dli_sname=WaitForMultipleObjectsEx [0x10094a008]
+[14:45:13:678] [83359:02102242] [ERROR][com.freerdp.utils.signal.posix] - [winpr_log_backtrace_ex]: 6: address=0x1005ddab4 dli_fname=/Users/sergey/.homebrew/Cellar/freerdp/3.30.0_1/bin/sfreerdp [0x1005dc000], dli_sname=main [0x1005dd8b0]
+=== exit= ===

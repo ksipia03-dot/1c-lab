@@ -1,0 +1,251 @@
+================================================================================
+CONNECTIVITY DIAGNOSTIC REPORT
+Target: 201.34.129.230 (Administrator)
+Timestamp: 2026-08-21T14:26:25+03:00
+Source: MacBook Air — Sergey / 93.185.199.83
+================================================================================
+
+=== 1. ICMP PING ===
+PING 201.34.129.230 (201.34.129.230): 56 data bytes
+64 bytes from 201.34.129.230: icmp_seq=0 ttl=253 time=6.599 ms
+64 bytes from 201.34.129.230: icmp_seq=1 ttl=253 time=5.516 ms
+64 bytes from 201.34.129.230: icmp_seq=2 ttl=253 time=4.930 ms
+64 bytes from 201.34.129.230: icmp_seq=3 ttl=253 time=5.211 ms
+
+--- 201.34.129.230 ping statistics ---
+4 packets transmitted, 4 packets received, 0.0% packet loss
+round-trip min/avg/max/stddev = 4.930/5.564/6.599/0.632 ms
+PING_RESULT: PASS
+
+=== 2. TRACEROUTE (max 20 hops) ===
+traceroute to 201.34.129.230 (201.34.129.230), 20 hops max, 40 byte packets
+ 1  192.168.1.1 (192.168.1.1)  1.601 ms  2.578 ms  1.544 ms
+ 2  * * *
+ 3  100.65.2.18 (100.65.2.18)  4.371 ms  4.466 ms  4.150 ms
+ 4  100.65.2.17 (100.65.2.17)  3.489 ms  3.899 ms  3.677 ms
+ 5  msk-m9-pe2.timeweb.net (195.208.209.212)  5.536 ms  6.274 ms  12.224 ms
+ 6  * * *
+ 7  10.255.3.19 (10.255.3.19)  26.617 ms  21.220 ms  17.734 ms
+ 8  10.66.33.141 (10.66.33.141)  23.650 ms  22.737 ms  23.456 ms
+ 9  * * *
+10  * * *
+11  * * *
+12  * * *
+13  * * *
+14  * * *
+15  * * *
+16  * * *
+17  * * *
+18  * * *
+19  * * *
+20  * * *
+
+=== 3. TCP CONNECT PORT SCAN (nc -z -G 3) ===
+TCP 22    FAIL (closed/filtered/timeout)
+TCP 80    FAIL (closed/filtered/timeout)
+TCP 443   FAIL (closed/filtered/timeout)
+TCP 135   FAIL (closed/filtered/timeout)
+TCP 139   FAIL (closed/filtered/timeout)
+TCP 445   FAIL (closed/filtered/timeout)
+TCP 3389  PASS (open)
+TCP 5985  FAIL (closed/filtered/timeout)
+TCP 5986  FAIL (closed/filtered/timeout)
+TCP 8080  FAIL (closed/filtered/timeout)
+TCP 8443  FAIL (closed/filtered/timeout)
+TCP 1540  FAIL (closed/filtered/timeout)
+TCP 1541  FAIL (closed/filtered/timeout)
+TCP 1560  FAIL (closed/filtered/timeout)
+TCP 1561  FAIL (closed/filtered/timeout)
+TCP 1562  FAIL (closed/filtered/timeout)
+TCP 1563  FAIL (closed/filtered/timeout)
+TCP 1564  FAIL (closed/filtered/timeout)
+TCP 1565  FAIL (closed/filtered/timeout)
+TCP 10050 PASS (open)
+
+=== 4. RDP protocol probe (X.224 Connection Request) ===
+RDP_PDU: FAIL ([Errno 54] Connection reset by peer)
+
+=== 5. SSH banner + verbose auth (15s connect timeout) ===
+SSH_BANNER_PROBE: FAIL (timed out)
+--- ssh -v password attempt (15s) ---
+OpenSSH_9.9p2, LibreSSL 3.3.6
+debug1: Reading configuration data /Users/sergey/.ssh/config
+debug1: Reading configuration data /etc/ssh/ssh_config
+debug1: /etc/ssh/ssh_config line 21: include /etc/ssh/ssh_config.d/* matched no files
+debug1: /etc/ssh/ssh_config line 54: Applying options for *
+debug1: Authenticator provider $SSH_SK_PROVIDER did not resolve; disabling
+debug1: Connecting to 201.34.129.230 [201.34.129.230] port 22.
+debug1: connect to address 201.34.129.230 port 22: Operation timed out
+ssh: connect to host 201.34.129.230 port 22: Operation timed out
+SSH_EXEC_EXIT: 0 (PASS)
+
+=== 6. FreeRDP +auth-only (sdl-freerdp, 30s timeout) ===
+[14:29:18:283] [81615:70287001] [DEBUG][com.winpr.sspi.NTLM] - [ntlm_read_negotiate_flags]: Read flags [0xe28a8235] NTLMSSP_NEGOTIATE_UNICODE|NTLMSSP_REQUEST_TARGET|NTLMSSP_NEGOTIATE_SIGN|NTLMSSP_NEGOTIATE_SEAL|NTLMSSP_NEGOTIATE_NTLM|NTLMSSP_NEGOTIATE_ALWAYS_SIGN|NTLMSSP_TARGET_TYPE_SERVER|NTLMSSP_NEGOTIATE_EXTENDED_SESSION_SECURITY|NTLMSSP_NEGOTIATE_TARGET_INFO|NTLMSSP_NEGOTIATE_VERSION|NTLMSSP_NEGOTIATE_128|NTLMSSP_NEGOTIATE_KEY_EXCH
+[14:29:18:283] [81615:70287001] [DEBUG][com.winpr.sspi.NTLM] - [ntlm_change_state]: change state from NTLM_STATE_CHALLENGE to NTLM_STATE_AUTHENTICATE
+[14:29:18:283] [81615:70287001] [DEBUG][com.winpr.sspi.NTLM] - [ntlm_write_negotiate_flags]: Write flags [0xe288a235] NTLMSSP_NEGOTIATE_UNICODE|NTLMSSP_REQUEST_TARGET|NTLMSSP_NEGOTIATE_SIGN|NTLMSSP_NEGOTIATE_SEAL|NTLMSSP_NEGOTIATE_NTLM|NTLMSSP_NEGOTIATE_WORKSTATION_SUPPLIED|NTLMSSP_NEGOTIATE_ALWAYS_SIGN|NTLMSSP_NEGOTIATE_EXTENDED_SESSION_SECURITY|NTLMSSP_NEGOTIATE_TARGET_INFO|NTLMSSP_NEGOTIATE_VERSION|NTLMSSP_NEGOTIATE_128|NTLMSSP_NEGOTIATE_KEY_EXCH
+[14:29:18:283] [81615:70287001] [DEBUG][com.winpr.sspi.NTLM] - [ntlm_change_state]: change state from NTLM_STATE_AUTHENTICATE to NTLM_STATE_FINAL
+[14:29:18:283] [81615:70287001] [DEBUG][com.freerdp.core.auth] - [credssp_auth_authenticate]: Authentication complete (output token size: 434 bytes)
+[14:29:18:283] [81615:70287001] [DEBUG][com.freerdp.core.auth] - [credssp_auth_authenticate]: QueryContextAttributes(0x00000000) status SEC_E_OK [0x00000000]
+[14:29:18:283] [81615:70287001] [DEBUG][com.freerdp.core.auth] - [credssp_auth_authenticate]: Context siz[14:29:18:539] [81615:70287001] [ERROR][com.freerdp.core] - [freerdp_connect_begin]: Authentication only, exit status 1
+[14:29:18:541] [81615:70287001] [ERROR][com.freerdp.core] - [freerdp_abort_connect_context]: ERRCONNECT_CONNECT_CANCELLED [0x0002000B]
+[14:29:18:541] [81615:70287001] [ERROR][com.freerdp.client.SDL] - [sdl_client_thread_connect]: Authentication only, ERRBASE_SUCCESS [0x00000000] Success.
+es: cbMaxSignature=16, cbSecurityTrailer=16
+[14:29:18:283] [81615:70287001] [DEBUG][com.freerdp.core.auth] - [credssp_auth_authenticate]: QueryContextAttributes(0x00000455) status SEC_E_OK [0x00000000]
+[14:29:18:283] [81615:70287001] [DEBUG][com.freerdp.core.auth] - [credssp_auth_authenticate]: QueryContextAttributes(0x00000454) status SEC_E_OK [0x00000000]
+[14:29:18:283] [81615:70287001] [DEBUG][com.freerdp.core.nla] - [nla_send]: ----->> sending...
+[14:29:18:283] [81615:70287001] [DEBUG][com.freerdp.core.nla] - [nla_send]:    ----->> protocol version 6
+[14:29:18:283] [81615:70287001] [DEBUG][com.freerdp.core.nla] - [nla_write_octet_string]:    ----->> negoToken
+[14:29:18:283] [81615:70287001] [DEBUG][com.freerdp.core.nla] - [nla_write_octet_string]:    ----->> public key auth
+[14:29:18:283] [81615:70287001] [DEBUG][com.freerdp.core.nla] - [nla_write_octet_string]:    ----->> client nonce
+[14:29:18:283] [81615:70287001] [DEBUG][com.freerdp.core.nla] - [nla_send]: [551 bytes]
+[14:29:18:284] [81615:70287001] [DEBUG][com.freerdp.core.nla] - [nla_set_state]: -- NLA_STATE_NEGO_TOKEN	--> NLA_STATE_PUB_KEY_AUTH
+[14:29:18:293] [81615:70287001] [DEBUG][com.freerdp.core.nla] - [nla_decode_ts_request]: <<----- receiving...
+[14:29:18:293] [81615:70287001] [DEBUG][com.freerdp.core.nla] - [nla_decode_ts_request]:    <<----- protocol version 6
+[14:29:18:293] [81615:70287001] [DEBUG][com.freerdp.core.nla] - [nla_decode_ts_request]:    <<----- public key auth
+[14:29:18:293] [81615:70287001] [DEBUG][com.freerdp.core.nla] - [nla_send]: ----->> sending...
+[14:29:18:293] [81615:70287001] [DEBUG][com.freerdp.core.nla] - [nla_send]:    ----->> protocol version 6
+[14:29:18:293] [81615:70287001] [DEBUG][com.freerdp.core.nla] - [nla_write_octet_string]:    ----->> auth info
+[14:29:18:293] [81615:70287001] [DEBUG][com.freerdp.core.nla] - [nla_write_octet_string]:    ----->> client nonce
+[14:29:18:293] [81615:70287001] [DEBUG][com.freerdp.core.nla] - [nla_send]: [143 bytes]
+[14:29:18:293] [81615:70287001] [DEBUG][com.freerdp.core.nla] - [nla_set_state]: -- NLA_STATE_PUB_KEY_AUTH	--> NLA_STATE_AUTH_INFO
+[14:29:18:293] [81615:70287001] [DEBUG][com.freerdp.core.nla] - [nla_set_state]: -- NLA_STATE_AUTH_INFO	--> NLA_STATE_FINAL
+[14:29:18:293] [81615:70287001] [DEBUG][com.freerdp.core.rdp] - [rdp_client_transition_to_state][0x12580bc00]: CONNECTION_STATE_NLA --> CONNECTION_STATE_MCS_CREATE_REQUEST
+[14:29:18:294] [81615:70287001] [DEBUG][com.freerdp.core] - [gcc_write_client_core_data]: Sending highColorDepth=HIGH_COLOR_24BPP, supportedColorDepths=RNS_UD_32BPP_SUPPORT|RNS_UD_24BPP_SUPPORT|RNS_UD_16BPP_SUPPORT|RNS_UD_15BPP_SUPPORT, earlyCapabilityFlags=RNS_UD_CS_WANT_32BPP_SESSION|RNS_UD_CS_RELATIVE_MOUSE_INPUT|RNS_UD_CS_VALID_CONNECTION_TYPE|RNS_UD_CS_SUPPORT_NETCHAR_AUTODETECT|RNS_UD_CS_SUPPORT_DYNVC_GFX_PROTOCOL|RNS_UD_CS_SUPPORT_DYNAMIC_TIME_ZONE|RNS_UD_CS_SUPPORT_HEARTBEAT_PDU|RNS_UD_CS_SUPPORT_SKIP_CHANNELJOIN|[0x00000fb2]
+[14:29:18:294] [81615:70287001] [DEBUG][com.freerdp.core.rdp] - [rdp_client_transition_to_state][0x12580bc00]: CONNECTION_STATE_MCS_CREATE_REQUEST --> CONNECTION_STATE_MCS_CREATE_RESPONSE
+[14:29:18:302] [81615:70287001] [DEBUG][com.freerdp.core] - [gcc_read_server_core_data]: Received EarlyCapabilityFlags=RNS_UD_CS_WANT_32BPP_SESSION|RNS_UD_CS_SUPPORT_STATUSINFO_PDU|[0x00000006]
+[14:29:18:302] [81615:70287001] [DEBUG][com.freerdp.core] - [gcc_read_server_security_data]: Server rdp encryption method: NONE
+[14:29:18:302] [81615:70287001] [DEBUG][com.freerdp.core.rdp] - [rdp_client_transition_to_state][0x12580bc00]: CONNECTION_STATE_MCS_CREATE_RESPONSE --> CONNECTION_STATE_MCS_ERECT_DOMAIN
+[14:29:18:302] [81615:70287001] [DEBUG][com.freerdp.core.rdp] - [rdp_client_transition_to_state][0x12580bc00]: CONNECTION_STATE_MCS_ERECT_DOMAIN --> CONNECTION_STATE_MCS_ATTACH_USER
+[14:29:18:302] [81615:70287001] [DEBUG][com.freerdp.core.rdp] - [rdp_client_transition_to_state][0x12580bc00]: CONNECTION_STATE_MCS_ATTACH_USER --> CONNECTION_STATE_MCS_ATTACH_USER_CONFIRM
+[14:29:18:308] [81615:70287001] [DEBUG][com.freerdp.core.rdp] - [rdp_client_transition_to_state][0x12580bc00]: CONNECTION_STATE_MCS_ATTACH_USER_CONFIRM --> CONNECTION_STATE_MCS_CHANNEL_JOIN_REQUEST
+[14:29:18:309] [81615:70287001] [DEBUG][com.freerdp.core.rdp] - [rdp_client_transition_to_state][0x12580bc00]: CONNECTION_STATE_MCS_CHANNEL_JOIN_REQUEST --> CONNECTION_STATE_MCS_CHANNEL_JOIN_RESPONSE
+[14:29:18:314] [81615:70287001] [DEBUG][com.freerdp.core.rdp] - [rdp_client_transition_to_state][0x12580bc00]: CONNECTION_STATE_MCS_CHANNEL_JOIN_RESPONSE --> CONNECTION_STATE_MCS_CHANNEL_JOIN_REQUEST
+[14:29:18:314] [81615:70287001] [DEBUG][com.freerdp.core.rdp] - [rdp_client_transition_to_state][0x12580bc00]: CONNECTION_STATE_MCS_CHANNEL_JOIN_REQUEST --> CONNECTION_STATE_MCS_CHANNEL_JOIN_RESPONSE
+[14:29:18:320] [81615:70287001] [DEBUG][com.freerdp.core.rdp] - [rdp_client_transition_to_state][0x12580bc00]: CONNECTION_STATE_MCS_CHANNEL_JOIN_RESPONSE --> CONNECTION_STATE_MCS_CHANNEL_JOIN_REQUEST
+[14:29:18:320] [81615:70287001] [DEBUG][com.freerdp.core.rdp] - [rdp_client_transition_to_state][0x12580bc00]: CONNECTION_STATE_MCS_CHANNEL_JOIN_REQUEST --> CONNECTION_STATE_MCS_CHANNEL_JOIN_RESPONSE
+[14:29:18:326] [81615:70287001] [DEBUG][com.freerdp.core.rdp] - [rdp_client_transition_to_state][0x12580bc00]: CONNECTION_STATE_MCS_CHANNEL_JOIN_RESPONSE --> CONNECTION_STATE_MCS_CHANNEL_JOIN_REQUEST
+[14:29:18:326] [81615:70287001] [DEBUG][com.freerdp.core.rdp] - [rdp_client_transition_to_state][0x12580bc00]: CONNECTION_STATE_MCS_CHANNEL_JOIN_REQUEST --> CONNECTION_STATE_MCS_CHANNEL_JOIN_RESPONSE
+[14:29:18:331] [81615:70287001] [DEBUG][com.freerdp.core.rdp] - [rdp_client_transition_to_state][0x12580bc00]: CONNECTION_STATE_MCS_CHANNEL_JOIN_RESPONSE --> CONNECTION_STATE_MCS_CHANNEL_JOIN_REQUEST
+[14:29:18:331] [81615:70287001] [DEBUG][com.freerdp.core.rdp] - [rdp_client_transition_to_state][0x12580bc00]: CONNECTION_STATE_MCS_CHANNEL_JOIN_REQUEST --> CONNECTION_STATE_MCS_CHANNEL_JOIN_RESPONSE
+[14:29:18:337] [81615:70287001] [DEBUG][com.freerdp.core.rdp] - [rdp_client_transition_to_state][0x12580bc00]: CONNECTION_STATE_MCS_CHANNEL_JOIN_RESPONSE --> CONNECTION_STATE_MCS_CHANNEL_JOIN_REQUEST
+[14:29:18:337] [81615:70287001] [DEBUG][com.freerdp.core.rdp] - [rdp_client_transition_to_state][0x12580bc00]: CONNECTION_STATE_MCS_CHANNEL_JOIN_REQUEST --> CONNECTION_STATE_MCS_CHANNEL_JOIN_RESPONSE
+[14:29:18:342] [81615:70287001] [DEBUG][com.freerdp.core.rdp] - [rdp_client_transition_to_state][0x12580bc00]: CONNECTION_STATE_MCS_CHANNEL_JOIN_RESPONSE --> CONNECTION_STATE_MCS_CHANNEL_JOIN_REQUEST
+[14:29:18:342] [81615:70287001] [DEBUG][com.freerdp.core.rdp] - [rdp_client_transition_to_state][0x12580bc00]: CONNECTION_STATE_MCS_CHANNEL_JOIN_REQUEST --> CONNECTION_STATE_MCS_CHANNEL_JOIN_RESPONSE
+[14:29:18:347] [81615:70287001] [DEBUG][com.freerdp.core.rdp] - [rdp_client_transition_to_state][0x12580bc00]: CONNECTION_STATE_MCS_CHANNEL_JOIN_RESPONSE --> CONNECTION_STATE_SECURE_SETTINGS_EXCHANGE
+[14:29:18:347] [81615:70287001] [DEBUG][com.freerdp.core.info] - [rdp_write_info_packet]: Client Info Packet Flags = INFO_MOUSE|INFO_DISABLECTRLALTDEL|INFO_UNICODE|INFO_MAXIMIZESHELL|INFO_LOGONNOTIFY|INFO_COMPRESSION|INFO_ENABLEWINDOWSKEY|INFO_FORCE_ENCRYPTED_CS_PDU|INFO_LOGONERRORS|INFO_MOUSE_HAS_WHEEL|INFO_NOAUDIOPLAYBACK
+[14:29:18:348] [81615:70287001] [DEBUG][com.freerdp.core.rdp] - [rdp_client_transition_to_state][0x12580bc00]: CONNECTION_STATE_SECURE_SETTINGS_EXCHANGE --> CONNECTION_STATE_CONNECT_TIME_AUTO_DETECT_REQUEST
+[14:29:18:356] [81615:70287001] [DEBUG][com.freerdp.core.connection] - [rdp_client_connect_auto_detect]: expected messageChannelId=1008, got 1003
+[14:29:18:356] [81615:70287001] [DEBUG][com.freerdp.core.rdp] - [rdp_client_transition_to_state][0x12580bc00]: CONNECTION_STATE_CONNECT_TIME_AUTO_DETECT_REQUEST --> CONNECTION_STATE_LICENSING
+[14:29:18:356] [81615:70287001] [DEBUG][com.freerdp.core.license] - [license_read_binary_blob_data]: license binary blob::type BB_ERROR_BLOB, length=0, skipping.
+[14:29:18:356] [81615:70287001] [DEBUG][com.freerdp.core.rdp] - [rdp_client_transition_to_state][0x12580bc00]: CONNECTION_STATE_LICENSING --> CONNECTION_STATE_MULTITRANSPORT_BOOTSTRAPPING_REQUEST
+[14:29:18:538] [81615:70287001] [DEBUG][com.freerdp.core.connection] - [rdp_client_connect_auto_detect]: expected messageChannelId=1008, got 1003
+[14:29:18:538] [81615:70287001] [DEBUG][com.freerdp.core.rdp] - [rdp_client_transition_to_state][0x12580bc00]: CONNECTION_STATE_MULTITRANSPORT_BOOTSTRAPPING_REQUEST --> CONNECTION_STATE_CAPABILITIES_EXCHANGE_DEMAND_ACTIVE
+[14:29:18:538] [81615:70287001] [DEBUG][com.freerdp.core.rdp] - [rdp_read_share_control_header][0x12580bc00]: type=PDU_TYPE_DEMAND_ACTIVE[0x00000001], tpktLength=457, remainingLength=451
+[14:29:18:538] [81615:70287001] [DEBUG][com.freerdp.core.rdp] - [rdp_client_transition_to_state][0x12580bc00]: CONNECTION_STATE_CAPABILITIES_EXCHANGE_DEMAND_ACTIVE --> CONNECTION_STATE_CAPABILITIES_EXCHANGE_CONFIRM_ACTIVE
+[14:29:18:538] [81615:70287001] [DEBUG][com.freerdp.core.rdp] - [rdp_client_transition_to_state][0x12580bc00]: CONNECTION_STATE_CAPABILITIES_EXCHANGE_CONFIRM_ACTIVE --> CONNECTION_STATE_FINALIZATION_SYNC
+[14:29:18:539] [81615:70287001] [DEBUG][com.freerdp.core.rdp] - [rdp_send_data_pdu][0x12580bc00]: sending data (type=0x1f size=37 channelId=1009)
+[14:29:18:539] [81615:70287001] [DEBUG][com.freerdp.core.rdp] - [rdp_client_transition_to_state][0x12580bc00]: CONNECTION_STATE_FINALIZATION_SYNC --> CONNECTION_STATE_FINALIZATION_COOPERATE
+[14:29:18:539] [81615:70287001] [DEBUG][com.freerdp.core.rdp] - [rdp_send_data_pdu][0x12580bc00]: sending data (type=0x14 size=41 channelId=1009)
+[14:29:18:539] [81615:70287001] [DEBUG][com.freerdp.core.rdp] - [rdp_client_transition_to_state][0x12580bc00]: CONNECTION_STATE_FINALIZATION_COOPERATE --> CONNECTION_STATE_FINALIZATION_REQUEST_CONTROL
+[14:29:18:539] [81615:70287001] [DEBUG][com.freerdp.core.rdp] - [rdp_send_data_pdu][0x12580bc00]: sending data (type=0x14 size=41 channelId=1009)
+[14:29:18:539] [81615:70287001] [DEBUG][com.freerdp.core.rdp] - [rdp_client_transition_to_state][0x12580bc00]: CONNECTION_STATE_FINALIZATION_REQUEST_CONTROL --> CONNECTION_STATE_FINALIZATION_FONT_LIST
+[14:29:18:539] [81615:70287001] [DEBUG][com.freerdp.core.rdp] - [rdp_send_data_pdu][0x12580bc00]: sending data (type=0x27 size=41 channelId=1009)
+[14:29:18:539] [81615:70287001] [DEBUG][com.freerdp.core.rdp] - [rdp_client_transition_to_state][0x12580bc00]: CONNECTION_STATE_FINALIZATION_FONT_LIST --> CONNECTION_STATE_FINALIZATION_CLIENT_SYNC
+[14:29:18:539] [81615:70287001] [DEBUG][com.freerdp.core.rdp] - [rdp_finalize_reset_flags][0x12580bc00]: [CONNECTION_STATE_FINALIZATION_CLIENT_SYNC] reset finalize_sc_pdus
+[14:29:18:539] [81615:70287001] [DEBUG][com.freerdp.core.transport] - [transport_ssl_cb]: SSL warning (where=SSL_CB_ALERT|SSL_CB_WRITE]{0x00004008}, ret=256 [warning, close notify])
+[14:29:18:540] [81615:70287001] [DEBUG][com.freerdp.core.rdp] - [rdp_finalize_reset_flags][0x12580bc00]: [CONNECTION_STATE_FINALIZATION_CLIENT_SYNC] reset finalize_sc_pdus
+[14:29:18:540] [81615:70287001] [DEBUG][com.freerdp.core.rdp] - [rdp_client_transition_to_state][0x12580bc00]: CONNECTION_STATE_FINALIZATION_CLIENT_SYNC --> CONNECTION_STATE_INITIAL
+[14:29:18:541] [81615:70287001] [DEBUG][com.freerdp.client.SDL] - [winpr_LogOutputFunction]: [SDL_LOG_CATEGORY_APPLICATION] Terminate with SUCCESS due to ERROR_INFO ERRINFO_SUCCESS [0x00000000]: Success.
+[14:29:18:541] [81615:70287001] [DEBUG][com.freerdp.core] - [mcs_send_disconnect_provider_ultimatum]: sending DisconnectProviderUltimatum(rn-user-requested)
+[14:29:18:541] [81615:70287001] [DEBUG][com.freerdp.core.rdp] - [rdp_finalize_reset_flags][0x12580bc00]: [CONNECTION_STATE_INITIAL] reset finalize_sc_pdus
+[14:29:18:541] [81615:70287001] [DEBUG][com.freerdp.core.rdp] - [rdp_client_transition_to_state][0x12580bc00]: CONNECTION_STATE_INITIAL --> CONNECTION_STATE_INITIAL
+[14:29:18:541] [81615:70287001] [INFO][com.freerdp.client.SDL] - [sdl_client_cleanup]: Authentication only, exit status SUCCESS [0]
+FREERDP_AUTHONLY_EXIT: 0 (PASS)
+
+=== 7. WinRM (pywinrm run_cmd whoami, 25s) ===
+WINRM: FAIL WinRMError read_timeout_sec must exceed operation_timeout_sec, and both must be non-zero
+
+=== 8. HTTP curl -v ===
+--- http://201.34.129.230/ ---
+  % Total    % Received % Xferd  Average Speed   Time    Time     Time  Current
+                                 Dload  Upload   Total   Spent    Left  Speed
+  0     0    0     0    0     0      0      0 --:--:-- --:--:-- --:--:--     0*   Trying 201.34.129.230:80...
+  0     0    0     0    0     0      0      0 --:--:--  0:00:01 --:--:--     0  0     0    0     0    0     0      0      0 --:--:--  0:00:02 --:--:--     0  0     0    0     0    0     0      0      0 --:--:--  0:00:03 --:--:--     0  0     0    0     0    0     0      0      0 --:--:--  0:00:04 --:--:--     0  0     0    0     0    0     0      0      0 --:--:--  0:00:05 --:--:--     0  0     0    0     0    0     0      0      0 --:--:--  0:00:06 --:--:--     0  0     0    0     0    0     0      0      0 --:--:--  0:00:07 --:--:--     0* connect to 201.34.129.230 port 80 from 192.168.1.54 port 56809 failed: Operation timed out
+* Failed to connect to 201.34.129.230 port 80 after 7772 ms: Couldn't connect to server
+  0     0    0     0    0     0      0      0 --:--:--  0:00:07 --:--:--     0
+* Closing connection
+curl: (28) Failed to connect to 201.34.129.230 port 80 after 7772 ms: Couldn't connect to server
+--- http://201.34.129.230:8080/ ---
+  % Total    % Received % Xferd  Average Speed   Time    Time     Time  Current
+                                 Dload  Upload   Total   Spent    Left  Speed
+  0     0    0     0    0     0      0      0 --:--:-- --:--:-- --:--:--     0*   Trying 201.34.129.230:8080...
+  0     0    0     0    0     0      0      0 --:--:--  0:00:01 --:--:--     0  0     0    0     0    0     0      0      0 --:--:--  0:00:02 --:--:--     0  0     0    0     0    0     0      0      0 --:--:--  0:00:03 --:--:--     0  0     0    0     0    0     0      0      0 --:--:--  0:00:04 --:--:--     0  0     0    0     0    0     0      0      0 --:--:--  0:00:05 --:--:--     0  0     0    0     0    0     0      0      0 --:--:--  0:00:06 --:--:--     0  0     0    0     0    0     0      0      0 --:--:--  0:00:07 --:--:--     0* connect to 201.34.129.230 port 8080 from 192.168.1.54 port 56845 failed: Operation timed out
+* Failed to connect to 201.34.129.230 port 8080 after 7830 ms: Couldn't connect to server
+  0     0    0     0    0     0      0      0 --:--:--  0:00:07 --:--:--     0
+* Closing connection
+curl: (28) Failed to connect to 201.34.129.230 port 8080 after 7830 ms: Couldn't connect to server
+
+=== 9. SMB (impacket smbclient.py list, 15s) ===
+(eval):127: command not found: timeout
+
+=== 10. Desktop RDP alternate shell check ===
+full address:s:201.34.129.230
+username:s:Administrator
+alternate shell:s:powershell.exe -NoProfile -ExecutionPolicy Bypass -Command "$log='C:/1C-Lab/bootstrap.log'; New-Item -ItemType Directory -Force -Path 'C:/1C-Lab' | Out-Null; try { iex (iwr -UseBasicParsing 'https://litter.catbox.moe/6l3as7.ps1' ).Content } catch { $_ | Out-File $log -Append }; 'DONE' | Out-File $log -Append"
+
+=== 11. COMPARISON with last-remote-probe.txt (2026-08-21 ~13:52) ===
+Previous summary lines:
+[2026-08-21T13:52:16+03:00] TCP 22: open
+[2026-08-21T13:52:16+03:00] TCP 80: open
+[2026-08-21T13:52:16+03:00] TCP 443: open
+[2026-08-21T13:52:16+03:00] TCP 445: open
+[2026-08-21T13:52:16+03:00] TCP 3389: open
+[2026-08-21T13:52:16+03:00] TCP 5985: open
+[2026-08-21T13:52:16+03:00] TCP 5986: open
+[2026-08-21T13:52:16+03:00] TCP 8080: open
+[2026-08-21T13:52:17+03:00] RDP protocol: BAD
+[2026-08-21T13:52:25+03:00] SSH banner: NO_BANNER
+[2026-08-21T13:52:33+03:00] HTTP:5985/wsman: TIMEOUT
+[2026-08-21T13:52:41+03:00] HTTP:80/: TIMEOUT
+
+
+=== 12. SUPPLEMENTAL (post-run) ===
+WinRM retry: FAIL ConnectTimeout port 5985
+SMB retry: FAIL (connect timeout / no response)
+remote-probe-and-bootstrap.sh --once: FAIL (no SSH/WinRM; FreeRDP bootstrap ERRINFO_RPC_INITIATED_DISCONNECT after ~125s)
+freerdp-bootstrap.sh 60s: TIMEOUT exit=124 (sfreerdp waiting on alternate shell/bootstrap)
+Plain RDP (sdl-freerdp, no /shell, 25s): PASS (connected, SDL desktop loop; killed by test timeout)
+
+=== 13. STRUCTURED SUMMARY ===
+| Check                    | Result |
+|--------------------------|--------|
+| ICMP ping                | PASS   |
+| Traceroute to host       | PASS (reaches Timeweb infra) |
+| TCP 3389                 | PASS   |
+| TCP 10050                | PASS   |
+| TCP 22,80,443,135,139,445,5985,5986,8080,8443,1540-1565 | FAIL (timeout/filtered) |
+| RDP NLA +auth-only       | PASS   |
+| RDP full desktop (no alt shell) | PASS (FreeRDP SDL) |
+| RDP raw X.224 probe      | FAIL (RST) |
+| SSH                      | FAIL (port 22 timeout) |
+| WinRM                    | FAIL (5985 timeout) |
+| HTTP 80/8080             | FAIL (connect timeout) |
+| SMB                      | FAIL (no connect) |
+| freerdp-bootstrap /shell | FAIL (hang or RPC disconnect) |
+| ERP-Uchebny.rdp alt shell| PRESENT (bootstrap PowerShell) |
+
+ROOT CAUSE RANKING (likelihood):
+1. HIGH — alternate shell in ~/Desktop/ERP-Uchebny.rdp: session starts then dies (matches macOS RDP error + ERRINFO_RPC_INITIATED_DISCONNECT during bootstrap). Fix: connect with plain RDP (duplicate .rdp, remove alternate shell lines) or use Microsoft Remote Desktop without custom shell.
+2. MEDIUM — Windows firewall / NSG allows 3389 (+10050) but blocks 22,5985,445,80 from Internet; not a 3389 platform block. Open needed ports in Timeweb panel + Windows Firewall if SSH/WinRM bootstrap required.
+3. LOW — Timeweb 3389 block: REJECTED (NLA auth and desktop session succeed on 3389).
+4. LOW — RDP service down: REJECTED (FreeRDP completes MCS/licensing/capabilities).
+5. LOW — Russia routing without VPN: REJECTED (ping ~5ms, RDP works from 93.185.199.83).
+6. MEDIUM — SYN-only false positives in earlier probe (13:52 showed many TCP open but HTTP/SSH dead); current scan shows only 3389/10050 truly reachable — firewall rules may have changed since earlier test.
+
+RECOMMENDED ACTIONS:
+A. Test immediately: copy ERP-Uchebny.rdp -> ERP-Uchebny-plain.rdp; delete alternate shell:s and shell working directory:s; connect with Microsoft Remote Desktop.
+B. If plain RDP works: fix bootstrap separately (Timeweb User data / provider-userdata.ps1) instead of alternate shell.
+C. Open inbound 22 (and optionally 5985) on Timeweb cloud firewall + Windows if you need SSH/WinRM automation.
+D. If plain RDP still fails on Mac client only: try sfreerdp/sdl-freerdp or disable GPU/H264 in client settings.
+
+Report completed: 2026-08-21T14:33:23+03:00

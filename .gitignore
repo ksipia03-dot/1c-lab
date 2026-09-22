@@ -1,0 +1,28 @@
+# ERP configuration dump (synced from server)
+config/erp-dump/
+
+# 1C database files
+*.1CD
+
+# Credentials and secrets
+*credentials*
+*.env
+.env
+.env.*
+server-credentials.local.json
+
+# ITS session cookies (orchestration auth jars)
+.cursor/workspace/**/its-cookies.txt
+
+# Local tooling too heavy / local-only for the public deploy repo
+.tools/
+docs/its/
+exam/materials/
+
+# Python venvs anywhere
+venv/
+.venv/
+
+# Logs
+logs/
+mcp-server.log

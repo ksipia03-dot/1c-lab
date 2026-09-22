@@ -1,0 +1,56 @@
+{
+  "mcpServers": {
+    "1c-mcp": {
+      "command": "C:\\1C-Lab\\tools\\mcp-1c\\mcp-1c.exe",
+      "args": [
+        "--dump",
+        "C:\\1C-Lab\\erp-dump\\config"
+      ]
+    },
+    "rsv-data": {
+      "command": "C:\\1C-Lab\\tools\\mcp-rsv-data\\MCP-RSV-Data\\rsvdata-bridge.exe",
+      "args": [
+        "serve",
+        "--config",
+        "C:\\Users\\Administrator\\AppData\\Roaming\\MCP-RSV-Data\\rsv-data.json"
+      ]
+    },
+    "1c-mcp-engine": {
+      "command": "C:\\1C-Lab\\tools\\1c_mcp\\venv\\Scripts\\python.exe",
+      "args": [
+        "-m",
+        "src.py_server"
+      ],
+      "cwd": "C:\\1C-Lab\\tools\\1c_mcp",
+      "env": {
+        "PYTHONPATH": "C:\\1C-Lab\\tools\\1c_mcp",
+        "PYTHONIOENCODING": "utf-8",
+        "MCP_TRANSPORT": "httppoll",
+        "MCP_HTTPPOLL_HOST": "127.0.0.1",
+        "MCP_HTTPPOLL_PORT": "9090",
+        "MCP_ONEC_SERVICE_ROOT": "mcp"
+      }
+    },
+    "1c-docs": {
+      "command": "C:\\1C-Lab\\tools\\jdk-17.0.20.1+1\\bin\\java.exe",
+      "args": [
+        "-Dfile.encoding=UTF-8",
+        "-jar",
+        "C:\\1C-Lab\\tools\\mcp-bsl-platform-context\\mcp-bsl-context-0.3.2.jar",
+        "--platform-path",
+        "C:\\Program Files (x86)\\1cv8t\\8.3.27.1688"
+      ]
+    },
+    "syntaxcheck": {
+      "command": "C:\\1C-Lab\\tools\\mcp-bsl-ls\\run-syntaxcheck.cmd",
+      "cwd": "C:\\1C-Lab\\erp-dump\\config",
+      "env": {
+        "BSL_JAR": "C:\\1C-Lab\\tools\\bsl-language-server\\bsl-language-server-1.0.7-exec.jar",
+        "BSL_MEMORY_MB": "2048",
+        "BSL_CONFIG": "C:\\1C-Lab\\tools\\bsl-language-server\\.bsl-language-server.json",
+        "BSL_LOG_LEVEL": "ERROR",
+        "JAVA_HOME": "C:\\1C-Lab\\tools\\jdk-21"
+      }
+    }
+  }
+}

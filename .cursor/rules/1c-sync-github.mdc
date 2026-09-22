@@ -1,0 +1,35 @@
+---
+description: После каждого завершённого изменения 1С — commit, push, gh run list; задачу не закрывать до зелёного Deploy to 1C
+alwaysApply: true
+---
+
+# Синхронизация 1С: commit → push → зелёный Actions
+
+Канон для агента: [AGENTS.md](../../AGENTS.md). Подробности цикла — [docs/07-sync-github-1c-server.md](../../docs/07-sync-github-1c-server.md).
+
+## Источник правды
+
+Правки tracked-файлов — только в `C:\Users\Administrator\Documents\1С_тест` на **vdswin2k22**.
+
+**Запрещено** править tracked-файлы на старом сервере 1С (`201.34.129.230`) — следующий деплой затрёт.
+
+Поток: **Windows → GitHub `ksipia03-dot/1c-lab` → self-hosted runner на 201.34.129.230 → Конфигуратор загружает в ИБ**. Это не rsync.
+
+## Обязательный цикл
+
+После **каждого** завершённого изменения отслеживаемых файлов, без отдельной просьбы:
+
+1. `git add`
+2. `git commit` — сообщение **почему**, не перечень «что»
+3. `git push origin main`
+4. `gh run list --limit 3`
+
+## Запрет закрывать задачу раньше времени
+
+Доработку 1С **нельзя** считать завершённой и закрывать, пока workflow **Deploy to 1C** не зелёный в GitHub Actions.
+
+Если workflow ещё идёт или упал — это открытый пункт, не «сделано».
+
+## GitHub-вход
+
+`gh auth` уже выполнен. **Не просить** `gh auth login`, пока живая `gh auth status` не упала.

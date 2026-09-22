@@ -1,0 +1,26 @@
+﻿---
+description: Offline-first ITS / platform methodology docs — prefer docs/its/ (+ AGENT-OFFLINE.md); use MCP docsearch/docinfo for exact API names; keep docs/1c-erp-25 and tooling-playbooks MCP guidance intact. Load for platform, methodology, or ITS documentation questions.
+alwaysApply: false
+---
+
+# ITS Offline Docs — Prefer Local Mirror
+
+## When to load
+
+Platform concepts, methodology, ITS narrative articles, or "how does X work in 1C?" questions — not day-to-day BSL edit playbooks (those stay in `tooling-playbooks.mdc`).
+
+## Policy
+
+1. **Offline first** — for platform / methodology narrative, read local mirrors under `docs/its/` and the agent guide `docs/its/AGENT-OFFLINE.md` before fetching live ITS or inventing answers.
+2. **Exact API names / signatures** — when you need a built-in method, type, or property name: use MCP **`docsearch`** (by description) → **`docinfo`** (by exact name) when those tools are available. Do not treat offline chapter text as a substitute for signature verification.
+3. **Do not delete or replace** `docs/1c-erp-25/` — ERP 2.5 docs stay in their own tree; this ITS mirror is additive.
+4. **Keep MCP playbooks** — do not remove or weaken `tooling-playbooks.mdc` MCP steps (`docsearch` / `docinfo` / `its_help` / etc.). This rule only adds offline-first preference for narrative docs; cross-link: `tooling-playbooks.mdc` → Documentation / Writing New Code.
+
+## Quick map
+
+| Need | Source |
+|------|--------|
+| Concepts, chapters, methodology | `docs/its/` (+ `AGENT-OFFLINE.md`) |
+| Exact platform API name/signature | MCP `docsearch` / `docinfo` |
+| ERP 2.5 configuration docs | `docs/1c-erp-25/` (unchanged) |
+| Per-task MCP sequences | `tooling-playbooks.mdc` |

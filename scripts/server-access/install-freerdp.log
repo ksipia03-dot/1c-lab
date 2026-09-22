@@ -1,0 +1,44 @@
+=== 2026-08-21T14:49:19+03:00 freerdp 1C install (sfreerdp) -> Administrator@201.34.129.230 timeout=120s ===
+=== install URL: https://litter.catbox.moe/z3jgg7.ps1 ===
+=== args file: /var/folders/2h/64_dct6d0bbdrbjmtphxnbrr0000gn/T//freerdp-install-args.txt (password redacted in log) ===
+[14:49:19:840] [83982:02102242] [WARN][com.freerdp.codec.nsc.neon] - [nsc_init_neon_int]: TODO: Implement neon optimized version of this function
+[14:49:19:850] [83982:02102242] [WARN][com.freerdp.core.rdp] - [log_build_warn][0x12c809400]: *************************************************
+[14:49:19:850] [83982:02102242] [WARN][com.freerdp.core.rdp] - [log_build_warn][0x12c809400]: This build is using [experimental] build options:
+[14:49:19:850] [83982:02102242] [WARN][com.freerdp.core.rdp] - [log_build_warn][0x12c809400]: * 'WITH_VAAPI_H264_ENCODING=ON'
+[14:49:19:850] [83982:02102242] [WARN][com.freerdp.core.rdp] - [log_build_warn][0x12c809400]: *
+[14:49:19:850] [83982:02102242] [WARN][com.freerdp.core.rdp] - [log_build_warn][0x12c809400]: [experimental] build options might crash the application
+[14:49:19:850] [83982:02102242] [WARN][com.freerdp.core.rdp] - [log_build_warn][0x12c809400]: *************************************************
+[14:49:19:850] [83982:02102242] [WARN][com.freerdp.core.rdp] - [log_build_warn][0x12c809400]: *************************************************
+[14:49:19:850] [83982:02102242] [WARN][com.freerdp.core.rdp] - [log_build_warn][0x12c809400]: This build is using [runtime-check] build options:
+[14:49:19:850] [83982:02102242] [WARN][com.freerdp.core.rdp] - [log_build_warn][0x12c809400]: * 'WITH_VERBOSE_WINPR_ASSERT=ON'
+[14:49:19:850] [83982:02102242] [WARN][com.freerdp.core.rdp] - [log_build_warn][0x12c809400]: *
+[14:49:19:850] [83982:02102242] [WARN][com.freerdp.core.rdp] - [log_build_warn][0x12c809400]: [runtime-check] build options might slow down the application
+[14:49:19:850] [83982:02102242] [WARN][com.freerdp.core.rdp] - [log_build_warn][0x12c809400]: *************************************************
+[14:49:19:895] [83982:02102242] [WARN][com.freerdp.crypto] - [tls_verify_certificate]: [DANGER] Certificate not checked, /cert:ignore in use.
+[14:49:19:895] [83982:02102242] [WARN][com.freerdp.crypto] - [tls_verify_certificate]: [DANGER] This prevents MITM attacks from being detected!
+[14:49:19:895] [83982:02102242] [WARN][com.freerdp.crypto] - [tls_verify_certificate]: [DANGER] Avoid using this unless in a secure LAN (=no internet) environment
+[14:49:20:145] [83982:02102242] [WARN][com.winpr.thread] - [SetThreadPriority]: pthread_setschedprio(0) not implemented, requires POSIX 2008 or later
+[14:51:19:766] [83982:02102242] [ERROR][com.freerdp.utils.signal.posix] - [fatal_handler]: Caught signal 'Alarm clock: 14' [14]
+[14:51:19:767] [83982:02102242] [ERROR][com.freerdp.utils.signal.posix] - [winpr_log_backtrace_ex]: 0: address=0x1026b275c dli_fname=/Users/sergey/.homebrew/Cellar/freerdp/3.30.0_1/lib/libwinpr3.3.30.0.dylib [0x102690000], dli_sname=winpr_unwind_backtrace [0x1026b26fc]
+[14:51:19:767] [83982:02102242] [ERROR][com.freerdp.utils.signal.posix] - [winpr_log_backtrace_ex]: 1: address=0x1026b0d6c dli_fname=/Users/sergey/.homebrew/Cellar/freerdp/3.30.0_1/lib/libwinpr3.3.30.0.dylib [0x102690000], dli_sname=winpr_log_backtrace_ex [0x1026b0d40]
+[14:51:19:767] [83982:02102242] [ERROR][com.freerdp.utils.signal.posix] - [winpr_log_backtrace_ex]: 2: address=0x1028aa984 dli_fname=/Users/sergey/.homebrew/Cellar/freerdp/3.30.0_1/lib/libfreerdp3.3.30.0.dylib [0x10287c000], dli_sname=fatal_handler [0x1028aa920]
+[14:51:19:767] [83982:02102242] [ERROR][com.freerdp.utils.signal.posix] - [winpr_log_backtrace_ex]: 3: address=0x1941a56a4 dli_fname=/usr/lib/system/libsystem_platform.dylib [0x1941a2000], dli_sname=_sigtramp [0x1941a566c]
+[14:51:19:767] [83982:02102242] [ERROR][com.freerdp.utils.signal.posix] - [winpr_log_backtrace_ex]: 4: address=0x102694214 dli_fname=/Users/sergey/.homebrew/Cellar/freerdp/3.30.0_1/lib/libwinpr3.3.30.0.dylib [0x102690000], dli_sname=pollset_poll [0x1026941bc]
+[14:51:19:767] [83982:02102242] [ERROR][com.freerdp.utils.signal.posix] - [winpr_log_backtrace_ex]: 5: address=0x1026961e0 dli_fname=/Users/sergey/.homebrew/Cellar/freerdp/3.30.0_1/lib/libwinpr3.3.30.0.dylib [0x102690000], dli_sname=WaitForMultipleObjectsEx [0x102696008]
+[14:51:19:767] [83982:02102242] [ERROR][com.freerdp.utils.signal.posix] - [winpr_log_backtrace_ex]: 6: address=0x102429ab4 dli_fname=/Users/sergey/.homebrew/Cellar/freerdp/3.30.0_1/bin/sfreerdp [0x102428000], dli_sname=main [0x1024298b0]
+=== freerdp exit= 2026-08-21T14:51:19+03:00 ===
+
+=== OUTCOME 2026-08-21T14:52:00+03:00 ===
+Result: INCONCLUSIVE / likely incomplete — local FREERDP_TIMEOUT_SEC=120 killed sfreerdp (SIGALRM exit 124).
+RDP: port 3389 OPEN (nc succeeded).
+SSH: port 22 CLOSED/TIMEOUT (nc failed after 5s).
+Interpretation: Session authenticated and stayed connected ~120s while remote /shell likely still running install-1c-erp.ps1 (script ~19KB; full 1C install exceeds 2 min). Cannot confirm install finished from client side.
+
+=== MANUAL FALLBACK (if SSH still closed or install not done) ===
+1. RDP to 201.34.129.230 as Administrator (Microsoft Remote Desktop or sfreerdp without /shell).
+2. Open PowerShell **as Administrator**.
+3. Run exactly:
+   iex (iwr -UseBasicParsing https://litter.catbox.moe/z3jgg7.ps1).Content
+
+Alternative (elevated child process from non-elevated shell):
+   Start-Process powershell -Verb RunAs -ArgumentList '-NoProfile -ExecutionPolicy Bypass -Command "iex (iwr -UseBasicParsing https://litter.catbox.moe/z3jgg7.ps1).Content"'

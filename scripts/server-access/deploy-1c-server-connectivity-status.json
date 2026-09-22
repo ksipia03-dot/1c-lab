@@ -1,0 +1,43 @@
+{
+  "task": "deploy-1c-server",
+  "host": "201.34.129.230",
+  "checked_at": "2026-08-21T14:47:00+03:00",
+  "ssh": {
+    "port_22_nc": "closed_or_filtered",
+    "sshpass": "/tmp/sshpass-1.10/sshpass",
+    "key": "~/.ssh/id_ed25519_1clab",
+    "password_auth": "timeout",
+    "key_plus_password_auth": "timeout",
+    "remote_exec": false
+  },
+  "rdp": {
+    "port_3389": "open",
+    "port_10050_zabbix": "open",
+    "user_confirmed_browser_session": true,
+    "freerdp_auth_only": "pass",
+    "freerdp_shell_probe_45s": "timeout_hang",
+    "probe_command": "New-Item C:\\1C-Lab\\scripts -Force; probe.txt",
+    "probe_verified_on_server": null
+  },
+  "server_discovery": {
+    "method": null,
+    "hostname": null,
+    "os": null,
+    "disk_space": null,
+    "path_C_1C-Lab": null,
+    "service_sshd": null,
+    "service_TermService": null,
+    "onec_C_Program_Files_1cv8": null,
+    "onec_versions": null,
+    "C_1C-Lab_listing": null,
+    "note": "No automated remote exec: SSH blocked; FreeRDP /shell hangs before command completion"
+  },
+  "deploy_1c_server": {
+    "status": "blocked",
+    "blockers": [
+      "Inbound TCP 22 unreachable from Mac (SSH automation unavailable)",
+      "FreeRDP alternate /shell does not complete within 45-90s (cannot verify probe or run install scripts headlessly)"
+    ],
+    "unblocked_path": "Interactive RDP in browser (user confirmed working) — run discovery/install PowerShell manually or open port 22 in Timeweb firewall + Windows"
+  }
+}
